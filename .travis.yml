@@ -14,5 +14,5 @@ jdk:
   - oraclejdk8
 
 script:
-  - chmod +x ./gradlew
-  - ./gradlew build --scan -s
+  - gradle assemble
+  - gradle check
