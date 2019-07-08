@@ -89,7 +89,6 @@ fabric.properties
 ###############################################################################
 # Gradle
 .gradle
-/gradle/
 /build/
 build/
 # Ignore Gradle GUI config
