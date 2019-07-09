@@ -10,9 +10,8 @@ import java.io.File;
 
 public class EditorForm extends JFrame {
 	private static final long serialVersionUID = 1L;
-	public JPanel leftButtonPanel;
-	public Dong_JMenuBar menuBar;
 	public CanvasPanel canvasPanel;
+	private JPanel leftButtonPanel;
 
 	public EditorForm() {
 		this.getContentPane().setLayout(null);
@@ -48,7 +47,7 @@ public class EditorForm extends JFrame {
 	}
 
 	private void initMenuBar() {
-		menuBar = new Dong_JMenuBar();
+		Dong_JMenuBar menuBar = new Dong_JMenuBar();
 		menuBar.addNewMenu("File");
 		menuBar.addNewMenuItem("File", new String[]{"New", "Save", "Open"});
 		menuBar.addNewMenu("Edit");

@@ -13,10 +13,8 @@ public class Dong_JMenuBar extends JMenuBar {
 	private ArrayList<String> menuNameList;
 
 	public Dong_JMenuBar() {
-		menuList = new ArrayList<JMenu>();
-		menuNameList = new ArrayList<String>();
-		menuList.clear();
-		menuNameList.clear();
+		menuList = new ArrayList<>();
+		menuNameList = new ArrayList<>();
 	}
 
 	public void addNewMenu(String menuName) {
@@ -38,23 +36,27 @@ public class Dong_JMenuBar extends JMenuBar {
 					JMenuItem menuItem = ((JMenuItem) e.getSource());
 					JFrame jFrame = (JFrame) SwingUtilities.getWindowAncestor(menu);
 					CanvasPanel canvasPanel = (CanvasPanel) jFrame.getContentPane().getComponent(1);
-					if (menuItem.getName().equals("Edit Name")) {
-						ArrayList<Shape> selectedShape = canvasPanel.getSelectedShapes();
-						if (selectedShape.size() == 1) {
-							String objName = JOptionPane.showInputDialog("");
-							if (objName != null) {
-								objName = "       " + objName;
-								selectedShape.get(0).setName(objName);
+					switch (menuItem.getName()) {
+						case "Edit Name":
+							ArrayList<Shape> selectedShape = canvasPanel.getSelectedShapes();
+							if (selectedShape.size() == 1) {
+								String objName = JOptionPane.showInputDialog("");
+								if (objName != null) {
+									objName = "       " + objName;
+									selectedShape.get(0).setName(objName);
+								}
 							}
-						}
-					} else if (menuItem.getName().equals("Group")) {
-						if (canvasPanel.getSelectedShapes().size() > 0) {
-							canvasPanel.addShape(new GroupObject(canvasPanel));
-						}
-					} else if (menuItem.getName().equals("UnGroup")) {
-						if (canvasPanel.getSelectedShapes().size() == 1) {
-							canvasPanel.removeGroup();
-						}
+							break;
+						case "Group":
+							if (canvasPanel.getSelectedShapes().size() > 0) {
+								canvasPanel.addShape(new GroupObject(canvasPanel));
+							}
+							break;
+						case "UnGroup":
+							if (canvasPanel.getSelectedShapes().size() == 1) {
+								canvasPanel.removeGroup();
+							}
+							break;
 					}
 					canvasPanel.repaint();
 				}

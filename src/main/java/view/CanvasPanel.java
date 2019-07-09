@@ -43,7 +43,7 @@ public class CanvasPanel extends JPanel {
 	}
 
 	public ArrayList<Shape> getShapes(Point point) {
-		ArrayList<Shape> shapes = new ArrayList<Shape>();
+		ArrayList<Shape> shapes = new ArrayList<>();
 		for (Shape shape : shapeList) {
 			if (shape.isInside(point)) {
 				shapes.add(shape);
@@ -59,7 +59,7 @@ public class CanvasPanel extends JPanel {
 	}
 
 	public ArrayList<Shape> getSelectedShapes() {
-		ArrayList<Shape> selectedShapeList = new ArrayList<Shape>();
+		ArrayList<Shape> selectedShapeList = new ArrayList<>();
 		for (Shape shape : shapeList) {
 			if (shape.getSelected()) {
 				selectedShapeList.add(shape);
@@ -91,8 +91,7 @@ public class CanvasPanel extends JPanel {
 	public void setSelected(Point point) {
 		setAllShapesSelectStatus(false);
 		for (Shape shape : shapeList) {
-			boolean insided = shape.isInside(point);
-			if (insided) {
+			if (shape.isInside(point)) {
 				shape.setSelected(true);
 				break;
 			}
@@ -113,7 +112,7 @@ public class CanvasPanel extends JPanel {
 			Shape shape = selectedShapes.get(0);
 			if (shape instanceof GroupObject) {
 				GroupObject group = ((GroupObject) shape);
-				addShape(group.getChilds());
+				addShape(group.getChildren());
 				shapeList.remove(group);
 			}
 		}

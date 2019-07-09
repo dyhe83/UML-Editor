@@ -12,9 +12,9 @@ import java.io.File;
 public class imgButton extends JButton implements ActionListener {
 	private static final long serialVersionUID = 1L;
 
-	private final Dimension imgSize = new Dimension(64, 64);
-	private final Dimension btnSize = new Dimension(80, 80);
-	private final Point position = new Point(15, 15);
+	private static final Dimension imgSize = new Dimension(64, 64);
+	private static final Dimension btnSize = new Dimension(80, 80);
+	private static final Point position = new Point(15, 15);
 
 	private Mode mode;
 

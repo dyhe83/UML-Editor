@@ -5,10 +5,10 @@ import port.Port;
 import java.awt.*;
 
 public class Shape {
-	protected String name = "";
 	protected int x = 0, y = 0, width = 100, height = 60;
-	protected int paintPriority = Integer.MAX_VALUE;
-	protected boolean selected = false;
+	int paintPriority = Integer.MAX_VALUE;
+	boolean selected = false;
+	private String name = "";
 
 	public Shape() {
 

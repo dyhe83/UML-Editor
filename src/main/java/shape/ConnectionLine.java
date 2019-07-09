@@ -5,10 +5,10 @@ import port.Port;
 import java.awt.*;
 
 public class ConnectionLine extends Shape {
-	protected final double polygonSize = 300;
-	protected Port fromPort, toPort;
+	private final double polygonSize = 300;
+	Port fromPort, toPort;
 
-	public ConnectionLine(Port fromPort, Port toPort) {
+	ConnectionLine(Port fromPort, Port toPort) {
 		this.fromPort = fromPort;
 		this.toPort = toPort;
 		super.paintPriority = 3;
@@ -37,7 +37,7 @@ public class ConnectionLine extends Shape {
 	protected void paintArrow(Graphics g) {
 	}
 
-	protected Point getRelayPoint(Point startPoint, Point endPoint) {
+	Point getRelayPoint(Point startPoint, Point endPoint) {
 		double x1 = startPoint.x;
 		double y1 = startPoint.y;
 		double x3 = endPoint.x;
@@ -59,7 +59,7 @@ public class ConnectionLine extends Shape {
 			return (new Point((int) x22, (int) y22));
 	}
 
-	protected Point[] getVerticalPoint(Point startPoint, Point endPoint) {
+	Point[] getVerticalPoint(Point startPoint, Point endPoint) {
 		double x1 = startPoint.x;
 		double y1 = startPoint.y;
 		double x3 = endPoint.x;

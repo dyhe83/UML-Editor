@@ -6,7 +6,7 @@ import java.awt.*;
 
 public class BasicObject extends Shape {
 
-	protected Port[] ports = {new UpPort(), new DownPort(), new LeftPort(), new RightPort()};
+	private Port[] ports = {new UpPort(), new DownPort(), new LeftPort(), new RightPort()};
 
 	public BasicObject(Point point) {
 		super(point);
