@@ -106,13 +106,7 @@ public class CanvasPanel extends JPanel {
 			public int compare(Shape shape1, Shape shape2) {
 				int p1 = shape1.getPaintPriority();
 				int p2 = shape2.getPaintPriority();
-				if (p1 < p2) {
-					return -1;
-				} else if (p1 > p2) {
-					return 1;
-				} else {
-					return 0;
-				}
+				return Integer.compare(p1, p2);
 			}
 		});
 	}
