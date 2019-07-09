@@ -7,7 +7,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Comparator;
 
 public class CanvasPanel extends JPanel {
 	private static final long serialVersionUID = -8315032390183761978L;
@@ -101,13 +100,10 @@ public class CanvasPanel extends JPanel {
 	}
 
 	private void reSortShapeSet() {
-		shapeList.sort(new Comparator<Shape>() {
-			@Override
-			public int compare(Shape shape1, Shape shape2) {
-				int p1 = shape1.getPaintPriority();
-				int p2 = shape2.getPaintPriority();
-				return Integer.compare(p1, p2);
-			}
+		shapeList.sort((shape1, shape2) -> {
+			int p1 = shape1.getPaintPriority();
+			int p2 = shape2.getPaintPriority();
+			return Integer.compare(p1, p2);
 		});
 	}
 
