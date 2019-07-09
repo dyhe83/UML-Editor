@@ -40,7 +40,7 @@ public class GroupObject extends Shape {
 
 	@Override
 	public void setSelected(boolean selected) {
-		this.selected = true;
+		this.selected = selected;
 		for (Shape shape : children) {
 			shape.setSelected(selected);
 		}

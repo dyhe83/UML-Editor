@@ -23,6 +23,7 @@ public class CanvasPanel extends JPanel {
 				Math.max(pressedPoint.y, releasedPoint.y));
 		Rectangle rectangle = new Rectangle(minPoint.x, minPoint.y, maxPoint.x - minPoint.x, maxPoint.y - minPoint.y);
 		for (Shape shape : shapeList) {
+			shape.setSelected(false);
 			if (rectangle.contains(new Rectangle(shape.getPosition(), shape.getSize()))) {
 				shape.setSelected(true);
 			}
