@@ -33,7 +33,7 @@ public class CanvasPanel extends JPanel {
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		reSortShapeSet();
+		reSortShapeList();
 		for (Shape shape : shapeList) {
 			shape.repaint(g);
 		}
@@ -99,7 +99,7 @@ public class CanvasPanel extends JPanel {
 		}
 	}
 
-	private void reSortShapeSet() {
+	private void reSortShapeList() {
 		shapeList.sort((shape1, shape2) -> {
 			int p1 = shape1.getPaintPriority();
 			int p2 = shape2.getPaintPriority();
