@@ -18,36 +18,36 @@ public class Mode implements MouseInputListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// System.out.println(currentMode.getClass().toString() + "clicked");
+
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		// System.out.println(currentMode.getClass().toString() + "enter");
+
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		// System.out.println(currentMode.getClass().toString() + "exit");
+
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		// System.out.println(currentMode.getClass().toString() + "pressed");
+
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		// System.out.println(currentMode.getClass().toString() + "release");
+
 	}
 
 	@Override
 	public void mouseDragged(MouseEvent arg0) {
-		// System.out.println(currentMode.getClass().toString() + "drag");
+
 	}
 
 	@Override
 	public void mouseMoved(MouseEvent arg0) {
-		// System.out.println(currentMode.getClass().toString() + "move");
+
 	}
 }

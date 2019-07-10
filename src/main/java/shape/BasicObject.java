@@ -13,24 +13,6 @@ public class BasicObject extends Shape {
 		paintPriority = 2;
 	}
 
-	// protected void calibratePort() {
-	// //Up
-	// ports[0].x = this.x + this.width / 2 - ports[0].width / 2;
-	// ports[0].y = this.y;
-	//
-	// //Down
-	// ports[1].x = this.x + this.width / 2 - ports[1].width / 2;
-	// ports[1].y = this.y + this.height - ports[1].height;
-	//
-	// //Left
-	// ports[2].x = this.x;
-	// ports[2].y = this.y + this.height / 2 - ports[2].height / 2;
-	//
-	// //Right
-	// ports[3].x = this.x + this.width - ports[3].width;
-	// ports[3].y = this.y + this.height / 2 - ports[3].height / 2;
-	// }
-
 	@Override
 	protected void paintPort(Graphics g) {
 		for (Port port : ports) {

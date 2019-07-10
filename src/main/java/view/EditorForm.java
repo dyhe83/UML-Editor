@@ -95,15 +95,6 @@ public class EditorForm extends JFrame {
 				Mode.getCurrentMode().mouseExited(e);
 			}
 
-			// @Override
-			// public void mouseDragged(MouseEvent arg0) {
-			// Mode.getCurrentMode().mouseDragged(arg0);
-			// }
-			//
-			// @Override
-			// public void mouseMoved(MouseEvent arg0) {
-			// Mode.getCurrentMode().mouseMoved(arg0);
-			// }
 		});
 		this.getContentPane().add(canvasPanel);
 	}

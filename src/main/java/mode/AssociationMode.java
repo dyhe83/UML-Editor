@@ -25,8 +25,6 @@ public class AssociationMode extends ConnectionLineMode {
 		CanvasPanel canvasPanel = (CanvasPanel) e.getSource();
 		Port releasedPort = super.getPort(canvasPanel, e.getPoint());
 		if (pressedPort != null && releasedPort != null) {
-			// System.out.println("pPort = " + pressedPort.getPosition().getX());
-
 			canvasPanel.addShape(new AssociationLine(pressedPort, releasedPort));
 		}
 	}

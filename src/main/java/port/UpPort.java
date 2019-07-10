@@ -13,7 +13,6 @@ public class UpPort extends Port {
 	}
 
 	public void calibrateBound(BasicObject obj) {
-		// Up
 		this.x = obj.getX() + obj.getWidth() / 2 - this.width / 2;
 		this.y = obj.getY();
 	}

@@ -65,7 +65,7 @@ public class Dong_JMenuBar extends JMenuBar {
 			JMenuItem item = menu.add(action);
 			item.setName(itemName);
 			menu.add(item);
-			// menu.addMouseListener(this);
+
 			menuList.set(index, menu);
 		}
 	}
