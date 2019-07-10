@@ -16,14 +16,14 @@ public class GroupObject extends Shape {
 		canvasPanel.removeSelectedShape();
 		this.setSelected(true);
 
-		this.calculateBound(canvasPanel);
+		this.calculateBound();
 	}
 
 	public ArrayList<Shape> getChildren() {
 		return children;
 	}
 
-	private void calculateBound(CanvasPanel canvasPanel) {
+	private void calculateBound() {
 		x = Integer.MAX_VALUE;
 		y = Integer.MAX_VALUE;
 		width = Integer.MIN_VALUE;
