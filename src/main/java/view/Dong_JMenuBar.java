@@ -42,7 +42,7 @@ public class Dong_JMenuBar extends JMenuBar {
 							if (selectedShape.size() == 1) {
 								String objName = JOptionPane.showInputDialog("");
 								if (objName != null) {
-									objName = "       " + objName;
+									objName = String.format("%16s", objName);
 									selectedShape.get(0).setName(objName);
 								}
 							}
