@@ -1,6 +1,6 @@
 package view;
 
-public class UML_Editor {
+public class UMLEditor {
 	public static void main(String[] args) {
 		new EditorForm();
 	}

@@ -15,7 +15,7 @@ dependencies {
 }
 
 jar {
-    manifest.attributes("Main-Class": "view.UML_Editor")
+    manifest.attributes("Main-Class": "view.UMLEditor")
     from configurations.compile.collect { entry -> zipTree entry }
 }
 
