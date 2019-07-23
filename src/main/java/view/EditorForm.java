@@ -6,10 +6,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.io.File;
+import java.io.*;
+import java.util.Properties;
 
 public class EditorForm extends JFrame {
 	private static final long serialVersionUID = 1L;
+	private static String configFileName = "src/main/resources/config.properties";
+
 	public CanvasPanel canvasPanel;
 	private JPanel leftButtonPanel;
 
@@ -38,12 +41,24 @@ public class EditorForm extends JFrame {
 		leftButtonPanel.setLayout(null);
 		leftButtonPanel.setBounds(0, 0, 120, 640);
 		this.getContentPane().add(leftButtonPanel);
-		leftButtonPanel.add(new imgButton(0, new File(".\\img\\select.png"), new SelectMode()));
-		leftButtonPanel.add(new imgButton(1, new File(".\\img\\aline.png"), new AssociationMode()));
-		leftButtonPanel.add(new imgButton(2, new File(".\\img\\gline.png"), new GeneralizationMode()));
-		leftButtonPanel.add(new imgButton(3, new File(".\\img\\cline.png"), new CompositionMode()));
-		leftButtonPanel.add(new imgButton(4, new File(".\\img\\class.png"), new BasicClassMode()));
-		leftButtonPanel.add(new imgButton(5, new File(".\\img\\ucase.png"), new UseCaseMode()));
+
+		Properties properties = new Properties();
+		try {
+			InputStream inputStream = new FileInputStream(configFileName);
+			properties.load(inputStream);
+		} catch (FileNotFoundException fileNotFoundException) {
+			System.err.println("config file not found:" + configFileName);
+			fileNotFoundException.printStackTrace();
+		} catch (IOException ioException) {
+			ioException.printStackTrace();
+		}
+
+		leftButtonPanel.add(new imgButton(0, new File(properties.getProperty("img.select")), new SelectMode()));
+		leftButtonPanel.add(new imgButton(1, new File(properties.getProperty("img.association")), new AssociationMode()));
+		leftButtonPanel.add(new imgButton(2, new File(properties.getProperty("img.generalization")), new GeneralizationMode()));
+		leftButtonPanel.add(new imgButton(3, new File(properties.getProperty("img.composition")), new CompositionMode()));
+		leftButtonPanel.add(new imgButton(4, new File(properties.getProperty("img.basic_class")), new BasicClassMode()));
+		leftButtonPanel.add(new imgButton(5, new File(properties.getProperty("img.use_case")), new UseCaseMode()));
 	}
 
 	private void initMenuBar() {
