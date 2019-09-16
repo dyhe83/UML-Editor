@@ -1,6 +1,6 @@
 # UML-Editor
 [![java8](https://img.shields.io/badge/java-8.0-orange.svg?style=popout)](https://www.java.com)
-![build](https://travis-ci.org/dyhe83/UML-Editor.svg?branch=master)
+[![build](https://travis-ci.org/dyhe83/UML-Editor.svg?branch=master)](https://travis-ci.org/dyhe83/UML-Editor)
 
 一個簡單的 Java UML 編輯器
 
