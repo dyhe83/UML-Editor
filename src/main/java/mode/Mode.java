@@ -1,20 +1,15 @@
 package mode;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.swing.event.MouseInputListener;
 import java.awt.event.MouseEvent;
 
 public class Mode implements MouseInputListener {
+	@Getter
+	@Setter
 	private static Mode currentMode;
-
-	public static Mode getCurrentMode() {
-		if (currentMode == null)
-			currentMode = new SelectMode();
-		return Mode.currentMode;
-	}
-
-	public static void setCurrentMode(Mode mode) {
-		Mode.currentMode = mode;
-	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {

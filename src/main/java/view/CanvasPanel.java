@@ -1,5 +1,6 @@
 package view;
 
+import lombok.Getter;
 import shape.GroupObject;
 import shape.Shape;
 
@@ -8,6 +9,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collection;
 
+@Getter
 public class CanvasPanel extends JPanel {
 	private static final long serialVersionUID = -8315032390183761978L;
 	private static ArrayList<Shape> shapeList;
@@ -49,10 +51,6 @@ public class CanvasPanel extends JPanel {
 		}
 	}
 
-	public ArrayList<Shape> getShapes() {
-		return shapeList;
-	}
-
 	public ArrayList<Shape> getShapesAtPoint(Point point) {
 		ArrayList<Shape> shapes = new ArrayList<>();
 		for (Shape shape : shapeList) {
@@ -72,7 +70,7 @@ public class CanvasPanel extends JPanel {
 	public ArrayList<Shape> getSelectedShapes() {
 		ArrayList<Shape> selectedShapeList = new ArrayList<>();
 		for (Shape shape : shapeList) {
-			if (shape.getSelected()) {
+			if (shape.isSelected()) {
 				selectedShapeList.add(shape);
 			}
 		}

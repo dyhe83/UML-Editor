@@ -1,14 +1,21 @@
 package shape;
 
+import lombok.Getter;
+import lombok.Setter;
 import port.Port;
 
 import java.awt.*;
 
+@Getter
 public class Shape {
 	// TODO: should store position as Point type
 	protected int x = 0, y = 0, width = 100, height = 60;
 	public int paintPriority = Integer.MAX_VALUE;
+
+	@Setter
 	private boolean selected = false;
+
+	@Setter
 	private String name = "";
 
 	public Shape() {
@@ -18,20 +25,6 @@ public class Shape {
 	public Shape(Point point) {
 		this.x = point.x;
 		this.y = point.y;
-	}
-
-	public String getName() {
-		return this.name;
-	}
-
-	public void setName(String name) {
-		if (name == null || name.isEmpty())
-			return;
-		this.name = name;
-	}
-
-	public int getPaintPriority() {
-		return this.paintPriority;
 	}
 
 	public void move(int dx, int dy) {
@@ -45,30 +38,6 @@ public class Shape {
 
 	public Dimension getSize() {
 		return (new Dimension(this.width, this.height));
-	}
-
-	public boolean getSelected() {
-		return this.selected;
-	}
-
-	public void setSelected(boolean selected) {
-		this.selected = selected;
-	}
-
-	public int getX() {
-		return this.x;
-	}
-
-	public int getY() {
-		return this.y;
-	}
-
-	public int getWidth() {
-		return this.width;
-	}
-
-	public int getHeight() {
-		return this.height;
 	}
 
 	public Port getClosestPort(Point point) {

@@ -1,11 +1,13 @@
 package shape;
 
+import lombok.Getter;
 import view.CanvasPanel;
 
 import java.awt.*;
 import java.util.ArrayList;
 
 public class GroupObject extends Shape {
+	@Getter
 	private ArrayList<Shape> children = new ArrayList<>();
 
 	public GroupObject(CanvasPanel canvasPanel) {
@@ -35,7 +37,8 @@ public class GroupObject extends Shape {
 
 	@Override
 	public void setSelected(boolean selected) {
-		this.selected = selected;
+		super.setSelected(selected);
+
 		for (Shape shape : this.children) {
 			shape.setSelected(selected);
 		}

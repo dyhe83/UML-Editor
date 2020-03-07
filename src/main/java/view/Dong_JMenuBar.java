@@ -9,13 +9,8 @@ import java.util.ArrayList;
 
 public class Dong_JMenuBar extends JMenuBar {
 	private static final long serialVersionUID = 332118958862894912L;
-	private ArrayList<JMenu> menuList;
-	private ArrayList<String> menuNameList;
-
-	public Dong_JMenuBar() {
-		this.menuList = new ArrayList<>();
-		this.menuNameList = new ArrayList<>();
-	}
+	private ArrayList<JMenu> menuList= new ArrayList<>();
+	private ArrayList<String> menuNameList = new ArrayList<>();
 
 	public void addNewMenu(String menuName) {
 		this.menuNameList.add(menuName);
