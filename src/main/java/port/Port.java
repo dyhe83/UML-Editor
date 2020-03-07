@@ -8,8 +8,8 @@ import java.awt.*;
 public class Port extends Shape {
 
 	public Port() {
-		height = 10;
-		width = 10;
+		this.height = 10;
+		this.width = 10;
 	}
 
 	public Point getBorderPoint() {
@@ -17,7 +17,7 @@ public class Port extends Shape {
 	}
 
 	public Point getMidPoint() {
-		return new Point(x + width / 2, y + height / 2);
+		return new Point(this.x + this.width / 2, this.y + this.height / 2);
 	}
 
 	public void calibrateBound(BasicObject obj) {

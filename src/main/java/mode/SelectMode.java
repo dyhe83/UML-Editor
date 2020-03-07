@@ -24,15 +24,15 @@ public class SelectMode extends Mode {
 	@Override
 	public void mousePressed(MouseEvent e) {
 		super.mousePressed(e);
-		pressedPoint = e.getPoint();
-		pressedShape = null;
+		this.pressedPoint = e.getPoint();
+		this.pressedShape = null;
 
 		CanvasPanel canvasPanel = (CanvasPanel) e.getSource();
 		canvasPanel.setAllShapesSelectStatus(false);
-		ArrayList<Shape> shapes = canvasPanel.getShapes(pressedPoint);
+		ArrayList<Shape> shapes = canvasPanel.getShapes(this.pressedPoint);
 		if (!shapes.isEmpty()) {
-			pressedShape = shapes.get(0);
-			pressedShape.setSelected(true);
+			this.pressedShape = shapes.get(0);
+			this.pressedShape.setSelected(true);
 		}
 		canvasPanel.repaint();
 	}
@@ -43,13 +43,13 @@ public class SelectMode extends Mode {
 		Point releasedPoint = e.getPoint();
 		CanvasPanel canvasPanel = (CanvasPanel) e.getSource();
 		canvasPanel.setAllShapesSelectStatus(false);
-		if (pressedShape == null) {
-			CanvasPanel.setSelected(pressedPoint, releasedPoint);
+		if (this.pressedShape == null) {
+			CanvasPanel.setSelected(this.pressedPoint, releasedPoint);
 		} else {
-			int dx = (releasedPoint.x - pressedPoint.x);
-			int dy = (releasedPoint.y - pressedPoint.y);
-			pressedShape.move(dx, dy);
-			pressedShape.setSelected(true);
+			int dx = (releasedPoint.x - this.pressedPoint.x);
+			int dy = (releasedPoint.y - this.pressedPoint.y);
+			this.pressedShape.move(dx, dy);
+			this.pressedShape.setSelected(true);
 		}
 		canvasPanel.repaint();
 	}

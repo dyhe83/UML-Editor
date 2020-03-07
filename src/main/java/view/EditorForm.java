@@ -18,11 +18,11 @@ public class EditorForm extends JFrame {
 
 	public EditorForm() {
 		this.getContentPane().setLayout(null);
-		initMenuBar();
-		initLeftButtonPanel();
-		initPanel();
-		initFrame();
-		((imgButton) leftButtonPanel.getComponent(0)).actionPerformed(null);
+		this.initMenuBar();
+		this.initLeftButtonPanel();
+		this.initPanel();
+		this.initFrame();
+		((imgButton) this.leftButtonPanel.getComponent(0)).actionPerformed(null);
 	}
 
 	private void initFrame() {
@@ -30,17 +30,17 @@ public class EditorForm extends JFrame {
 		int width = gd.getDisplayMode().getWidth();
 		int height = gd.getDisplayMode().getHeight();
 
-		setTitle("Simple UML Editor");
-		setBounds(width / 10, height / 10, 960, 640);
-		setVisible(true);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setTitle("Simple UML Editor");
+		this.setBounds(width / 10, height / 10, 960, 640);
+		this.setVisible(true);
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
 
 	private void initLeftButtonPanel() {
-		leftButtonPanel = new JPanel();
-		leftButtonPanel.setLayout(null);
-		leftButtonPanel.setBounds(0, 0, 120, 640);
-		this.getContentPane().add(leftButtonPanel);
+		this.leftButtonPanel = new JPanel();
+		this.leftButtonPanel.setLayout(null);
+		this.leftButtonPanel.setBounds(0, 0, 120, 640);
+		this.getContentPane().add(this.leftButtonPanel);
 
 		Properties properties = new Properties();
 		try {
@@ -53,12 +53,12 @@ public class EditorForm extends JFrame {
 			ioException.printStackTrace();
 		}
 
-		leftButtonPanel.add(new imgButton(0, new File(properties.getProperty("img.select")), new SelectMode()));
-		leftButtonPanel.add(new imgButton(1, new File(properties.getProperty("img.association")), new AssociationMode()));
-		leftButtonPanel.add(new imgButton(2, new File(properties.getProperty("img.generalization")), new GeneralizationMode()));
-		leftButtonPanel.add(new imgButton(3, new File(properties.getProperty("img.composition")), new CompositionMode()));
-		leftButtonPanel.add(new imgButton(4, new File(properties.getProperty("img.basic_class")), new BasicClassMode()));
-		leftButtonPanel.add(new imgButton(5, new File(properties.getProperty("img.use_case")), new UseCaseMode()));
+		this.leftButtonPanel.add(new imgButton(0, new File(properties.getProperty("img.select")), new SelectMode()));
+		this.leftButtonPanel.add(new imgButton(1, new File(properties.getProperty("img.association")), new AssociationMode()));
+		this.leftButtonPanel.add(new imgButton(2, new File(properties.getProperty("img.generalization")), new GeneralizationMode()));
+		this.leftButtonPanel.add(new imgButton(3, new File(properties.getProperty("img.composition")), new CompositionMode()));
+		this.leftButtonPanel.add(new imgButton(4, new File(properties.getProperty("img.basic_class")), new BasicClassMode()));
+		this.leftButtonPanel.add(new imgButton(5, new File(properties.getProperty("img.use_case")), new UseCaseMode()));
 	}
 
 	private void initMenuBar() {
@@ -69,16 +69,16 @@ public class EditorForm extends JFrame {
 		menuBar.addNewMenuItem("Edit", new String[]{"Edit Name", "Group", "UnGroup"});
 		menuBar.setVisible(true);
 		menuBar.bind();
-		setJMenuBar(menuBar);
+		this.setJMenuBar(menuBar);
 	}
 
 	private void initPanel() {
-		canvasPanel = new CanvasPanel();
-		canvasPanel.setLayout(null);
-		canvasPanel.setBounds(150, 15, 750, 540);
-		canvasPanel.setBackground(Color.WHITE);
-		canvasPanel.setVisible(true);
-		canvasPanel.addMouseListener(new MouseListener() {
+		this.canvasPanel = new CanvasPanel();
+		this.canvasPanel.setLayout(null);
+		this.canvasPanel.setBounds(150, 15, 750, 540);
+		this.canvasPanel.setBackground(Color.WHITE);
+		this.canvasPanel.setVisible(true);
+		this.canvasPanel.addMouseListener(new MouseListener() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				Mode.getCurrentMode().mouseClicked(e);
@@ -111,7 +111,7 @@ public class EditorForm extends JFrame {
 			}
 
 		});
-		this.getContentPane().add(canvasPanel);
+		this.getContentPane().add(this.canvasPanel);
 	}
 
 }

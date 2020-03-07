@@ -33,7 +33,7 @@ public class CanvasPanel extends JPanel {
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		reSortShapeList();
+		this.reSortShapeList();
 		for (Shape shape : shapeList) {
 			shape.repaint(g);
 		}
@@ -86,11 +86,11 @@ public class CanvasPanel extends JPanel {
 	}
 
 	public void removeSelectedShape() {
-		shapeList.removeAll(getSelectedShapes());
+		shapeList.removeAll(this.getSelectedShapes());
 	}
 
 	public void setSelected(Point point) {
-		setAllShapesSelectStatus(false);
+		this.setAllShapesSelectStatus(false);
 		for (Shape shape : shapeList) {
 			if (shape.isInside(point)) {
 				shape.setSelected(true);
@@ -113,7 +113,7 @@ public class CanvasPanel extends JPanel {
 			Shape shape = selectedShapes.get(0);
 			if (shape instanceof GroupObject) {
 				GroupObject group = ((GroupObject) shape);
-				addShape(group.getChildren());
+				this.addShape(group.getChildren());
 				shapeList.remove(group);
 			}
 		}

@@ -8,7 +8,7 @@ public class LeftPort extends Port {
 
 	@Override
 	public Point getBorderPoint() {
-		return new Point(x, y + height / 2);
+		return new Point(this.x, this.y + this.height / 2);
 	}
 
 	@Override

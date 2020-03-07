@@ -38,14 +38,14 @@ public class imgButton extends JButton implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		Mode.setCurrentMode(mode);
+		Mode.setCurrentMode(this.mode);
 		JFrame jFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
 		Container contentPane = jFrame.getContentPane();
 		JPanel leftButtonPanel = ((JPanel) contentPane.getComponent(0));
 		for (Component c : leftButtonPanel.getComponents()) {
 			c.setBackground(Color.WHITE);
 		}
-		setBackground(Color.GRAY);
+		this.setBackground(Color.GRAY);
 		CanvasPanel canvasPanel = (CanvasPanel) contentPane.getComponent(1);
 		canvasPanel.setAllShapesSelectStatus(false);
 		canvasPanel.repaint();

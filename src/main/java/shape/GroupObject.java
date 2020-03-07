@@ -9,10 +9,10 @@ public class GroupObject extends Shape {
 	private ArrayList<Shape> children;
 
 	public GroupObject(CanvasPanel canvasPanel) {
-		paintPriority = 1;
+		this.paintPriority = 1;
 
-		children = new ArrayList<>();
-		children.addAll(canvasPanel.getSelectedShapes());
+		this.children = new ArrayList<>();
+		this.children.addAll(canvasPanel.getSelectedShapes());
 		canvasPanel.removeSelectedShape();
 		this.setSelected(true);
 
@@ -20,28 +20,28 @@ public class GroupObject extends Shape {
 	}
 
 	public ArrayList<Shape> getChildren() {
-		return children;
+		return this.children;
 	}
 
 	private void calculateBound() {
-		x = Integer.MAX_VALUE;
-		y = Integer.MAX_VALUE;
-		width = Integer.MIN_VALUE;
-		height = Integer.MIN_VALUE;
-		for (Shape shape : children) {
-			x = Math.min(x, shape.x);
-			y = Math.min(y, shape.y);
-			width = Math.max(width, shape.x + shape.width);
-			height = Math.max(height, shape.y + shape.height);
+		this.x = Integer.MAX_VALUE;
+		this.y = Integer.MAX_VALUE;
+		this.width = Integer.MIN_VALUE;
+		this.height = Integer.MIN_VALUE;
+		for (Shape shape : this.children) {
+			this.x = Math.min(this.x, shape.x);
+			this.y = Math.min(this.y, shape.y);
+			this.width = Math.max(this.width, shape.x + shape.width);
+			this.height = Math.max(this.height, shape.y + shape.height);
 		}
-		width -= x;
-		height -= y;
+		this.width -= this.x;
+		this.height -= this.y;
 	}
 
 	@Override
 	public void setSelected(boolean selected) {
 		this.selected = selected;
-		for (Shape shape : children) {
+		for (Shape shape : this.children) {
 			shape.setSelected(selected);
 		}
 	}
@@ -49,8 +49,8 @@ public class GroupObject extends Shape {
 	@Override
 	public void paintShape(Graphics g) {
 		g.setColor(new Color(50, 50, 255, 127));
-		g.fillRect(x, y, width, height);
-		for (Shape shape : children) {
+		g.fillRect(this.x, this.y, this.width, this.height);
+		for (Shape shape : this.children) {
 			shape.repaint(g);
 		}
 	}
@@ -58,7 +58,7 @@ public class GroupObject extends Shape {
 	@Override
 	public void move(int dx, int dy) {
 		super.move(dx, dy);
-		for (Shape shape : children) {
+		for (Shape shape : this.children) {
 			shape.move(dx, dy);
 		}
 	}

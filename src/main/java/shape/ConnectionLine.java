@@ -21,14 +21,14 @@ public class ConnectionLine extends Shape {
 
 	@Override
 	public void paint(Graphics g) {
-		paintLine(g);
-		paintArrow(g);
+		this.paintLine(g);
+		this.paintArrow(g);
 	}
 
 	private void paintLine(Graphics g) {
-		int x1 = fromPort.getBorderPoint().x;
-		int y1 = fromPort.getBorderPoint().y;
-		Point relayPoint = getRelayPoint(fromPort.getBorderPoint(), toPort.getBorderPoint());
+		int x1 = this.fromPort.getBorderPoint().x;
+		int y1 = this.fromPort.getBorderPoint().y;
+		Point relayPoint = this.getRelayPoint(this.fromPort.getBorderPoint(), this.toPort.getBorderPoint());
 		int x2 = relayPoint.x;
 		int y2 = relayPoint.y;
 		g.drawLine(x1, y1, x2, y2);
@@ -47,7 +47,7 @@ public class ConnectionLine extends Shape {
 
 		double a = 1 + m * m;
 		double b = -2 * x3 + 2 * m * f - 2 * m * y3;
-		double c = x3 * x3 + f * f - 2 * f * y3 + y3 * y3 - polygonSize;
+		double c = x3 * x3 + f * f - 2 * f * y3 + y3 * y3 - this.polygonSize;
 		double x21 = (-b + Math.sqrt(b * b - 4 * a * c)) / (2 * a);
 		double x22 = (-b - Math.sqrt(b * b - 4 * a * c)) / (2 * a);
 		double y21 = m * x21 + f;
@@ -85,7 +85,7 @@ public class ConnectionLine extends Shape {
 
 		double a = 1 + m * m;
 		double b = -2 * x3 + 2 * m * f - 2 * m * y3;
-		double c = x3 * x3 + f * f - 2 * f * y3 + y3 * y3 - polygonSize / 2;
+		double c = x3 * x3 + f * f - 2 * f * y3 + y3 * y3 - this.polygonSize / 2;
 		double x21 = (-b + Math.sqrt(b * b - 4 * a * c)) / (2 * a);
 		double x22 = (-b - Math.sqrt(b * b - 4 * a * c)) / (2 * a);
 		double y21 = m * x21 + f;

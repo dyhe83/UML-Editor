@@ -12,11 +12,11 @@ public class AssociationLine extends ConnectionLine {
 
 	@Override
 	public void paintArrow(Graphics g) {
-		Point relayPoint = getRelayPoint(fromPort.getBorderPoint(), toPort.getBorderPoint());
+		Point relayPoint = this.getRelayPoint(this.fromPort.getBorderPoint(), this.toPort.getBorderPoint());
 		int x2 = relayPoint.x;
 		int y2 = relayPoint.y;
-		int x3 = toPort.getBorderPoint().x;
-		int y3 = toPort.getBorderPoint().y;
+		int x3 = this.toPort.getBorderPoint().x;
+		int y3 = this.toPort.getBorderPoint().y;
 		g.drawLine(x2, y2, x3, y3);
 	}
 }

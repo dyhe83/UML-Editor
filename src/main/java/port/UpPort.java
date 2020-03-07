@@ -8,7 +8,7 @@ public class UpPort extends Port {
 
 	@Override
 	public Point getBorderPoint() {
-		return new Point(x + width / 2, y);
+		return new Point(this.x + this.width / 2, this.y);
 	}
 
 	public void calibrateBound(BasicObject obj) {

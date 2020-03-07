@@ -8,7 +8,7 @@ public class RightPort extends Port {
 
 	@Override
 	public Point getBorderPoint() {
-		return new Point(x + width, y + height / 2);
+		return new Point(this.x + this.width, this.y + this.height / 2);
 	}
 
 	@Override

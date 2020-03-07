@@ -20,7 +20,7 @@ public class Shape {
 	}
 
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 	public void setName(String name) {
@@ -30,7 +30,7 @@ public class Shape {
 	}
 
 	public int getPaintPriority() {
-		return paintPriority;
+		return this.paintPriority;
 	}
 
 	public void move(int dx, int dy) {
@@ -47,7 +47,7 @@ public class Shape {
 	}
 
 	public boolean getSelected() {
-		return selected;
+		return this.selected;
 	}
 
 	public void setSelected(boolean selected) {
@@ -55,19 +55,19 @@ public class Shape {
 	}
 
 	public int getX() {
-		return x;
+		return this.x;
 	}
 
 	public int getY() {
-		return y;
+		return this.y;
 	}
 
 	public int getWidth() {
-		return width;
+		return this.width;
 	}
 
 	public int getHeight() {
-		return height;
+		return this.height;
 	}
 
 	public Port getClosestPort(Point point) {
@@ -75,20 +75,20 @@ public class Shape {
 	}
 
 	public boolean isInside(Point mousePosition) {
-		Rectangle rectangle = new Rectangle(x, y, width, height);
+		Rectangle rectangle = new Rectangle(this.x, this.y, this.width, this.height);
 		return rectangle.contains(mousePosition.x, mousePosition.y);
 	}
 
 	public void paint(Graphics g) {
-		paintShape(g);
+		this.paintShape(g);
 		if (this.selected) {
-			paintPort(g);
+			this.paintPort(g);
 		}
-		paintName(g);
+		this.paintName(g);
 	}
 
 	public void repaint(Graphics g) {
-		paint(g);
+		this.paint(g);
 	}
 
 	protected void paintShape(Graphics g) {
@@ -100,7 +100,7 @@ public class Shape {
 	}
 
 	protected void paintName(Graphics g) {
-		g.drawString(name, x, y + height / 2);
+		g.drawString(this.name, this.x, this.y + this.height / 2);
 	}
 
 }

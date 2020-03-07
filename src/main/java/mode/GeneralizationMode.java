@@ -9,14 +9,14 @@ import java.awt.event.MouseEvent;
 public class GeneralizationMode extends ConnectionLineMode {
 
 	public GeneralizationMode() {
-		pressedPort = null;
+		this.pressedPort = null;
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
 		super.mousePressed(e);
 		CanvasPanel canvasPanel = (CanvasPanel) e.getSource();
-		pressedPort = super.getPort(canvasPanel, e.getPoint());
+		this.pressedPort = super.getPort(canvasPanel, e.getPoint());
 	}
 
 	@Override
@@ -25,8 +25,8 @@ public class GeneralizationMode extends ConnectionLineMode {
 
 		CanvasPanel canvasPanel = (CanvasPanel) e.getSource();
 		Port releasedPort = super.getPort(canvasPanel, e.getPoint());
-		if (pressedPort != null && releasedPort != null) {
-			canvasPanel.addShape(new GeneralizationLine(pressedPort, releasedPort));
+		if (this.pressedPort != null && releasedPort != null) {
+			canvasPanel.addShape(new GeneralizationLine(this.pressedPort, releasedPort));
 		}
 	}
 }

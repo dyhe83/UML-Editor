@@ -8,7 +8,7 @@ public class DownPort extends Port {
 
 	@Override
 	public Point getBorderPoint() {
-		return new Point(x + width / 2, y + height);
+		return new Point(this.x + this.width / 2, this.y + this.height);
 	}
 
 	@Override

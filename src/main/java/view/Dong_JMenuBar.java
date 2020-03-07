@@ -13,22 +13,22 @@ public class Dong_JMenuBar extends JMenuBar {
 	private ArrayList<String> menuNameList;
 
 	public Dong_JMenuBar() {
-		menuList = new ArrayList<>();
-		menuNameList = new ArrayList<>();
+		this.menuList = new ArrayList<>();
+		this.menuNameList = new ArrayList<>();
 	}
 
 	public void addNewMenu(String menuName) {
-		menuNameList.add(menuName);
-		menuList.add(new JMenu(menuName));
+		this.menuNameList.add(menuName);
+		this.menuList.add(new JMenu(menuName));
 	}
 
 	public void addNewMenuItem(String menuName, String[] menuItems) {
-		int index = menuNameList.indexOf(menuName);
+		int index = this.menuNameList.indexOf(menuName);
 		if (index < 0) {
 			System.out.println("Error in ToolBar: " + menuName + " not found.");
 		}
 		for (String itemName : menuItems) {
-			JMenu menu = menuList.get(index);
+			JMenu menu = this.menuList.get(index);
 			Action action = new AbstractAction(itemName) {
 				private static final long serialVersionUID = 8901907119923615116L;
 
@@ -66,13 +66,13 @@ public class Dong_JMenuBar extends JMenuBar {
 			item.setName(itemName);
 			menu.add(item);
 
-			menuList.set(index, menu);
+			this.menuList.set(index, menu);
 		}
 	}
 
 	public void bind() {
-		for (JMenu menu : menuList) {
-			add(menu);
+		for (JMenu menu : this.menuList) {
+			this.add(menu);
 		}
 	}
 
