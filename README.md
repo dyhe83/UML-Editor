@@ -8,7 +8,7 @@
 ```
 $ git clone https://github.com/dyhe83/UML-Editor.git --depth=1
 $ cd UML-Editor
-$ gradle run
+$ ./gradlew run
 ```
 
 ## Screen shot
