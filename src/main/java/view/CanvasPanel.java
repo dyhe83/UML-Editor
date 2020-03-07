@@ -16,7 +16,17 @@ public class CanvasPanel extends JPanel {
 		shapeList = new ArrayList<>();
 	}
 
-	public static void setSelected(Point pressedPoint, Point releasedPoint) {
+	public void setShapesSelected(Point point) {
+		this.setAllShapesSelectStatus(false);
+		for (Shape shape : shapeList) {
+			if (shape.isInside(point)) {
+				shape.setSelected(true);
+				break;
+			}
+		}
+	}
+
+	public static void setShapesSelected(Point pressedPoint, Point releasedPoint) {
 		Point minPoint = new Point(Math.min(pressedPoint.x, releasedPoint.x),
 				Math.min(pressedPoint.y, releasedPoint.y));
 		Point maxPoint = new Point(Math.max(pressedPoint.x, releasedPoint.x),
@@ -43,7 +53,7 @@ public class CanvasPanel extends JPanel {
 		return shapeList;
 	}
 
-	public ArrayList<Shape> getShapes(Point point) {
+	public ArrayList<Shape> getShapesAtPoint(Point point) {
 		ArrayList<Shape> shapes = new ArrayList<>();
 		for (Shape shape : shapeList) {
 			if (shape.isInside(point)) {
@@ -89,16 +99,6 @@ public class CanvasPanel extends JPanel {
 		shapeList.removeAll(this.getSelectedShapes());
 	}
 
-	public void setSelected(Point point) {
-		this.setAllShapesSelectStatus(false);
-		for (Shape shape : shapeList) {
-			if (shape.isInside(point)) {
-				shape.setSelected(true);
-				break;
-			}
-		}
-	}
-
 	private void reSortShapeList() {
 		shapeList.sort((shape1, shape2) -> {
 			int p1 = shape1.getPaintPriority();
@@ -118,5 +118,4 @@ public class CanvasPanel extends JPanel {
 			}
 		}
 	}
-
 }

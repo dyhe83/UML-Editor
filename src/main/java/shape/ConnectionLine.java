@@ -8,7 +8,7 @@ public class ConnectionLine extends Shape {
 	private final double polygonSize = 300;
 	Port fromPort, toPort;
 
-	ConnectionLine(Port fromPort, Port toPort) {
+	public ConnectionLine(Port fromPort, Port toPort) {
 		this.fromPort = fromPort;
 		this.toPort = toPort;
 		super.paintPriority = 3;
@@ -37,7 +37,7 @@ public class ConnectionLine extends Shape {
 	protected void paintArrow(Graphics g) {
 	}
 
-	Point getRelayPoint(Point startPoint, Point endPoint) {
+	protected Point getRelayPoint(Point startPoint, Point endPoint) {
 		double x1 = startPoint.x;
 		double y1 = startPoint.y;
 		double x3 = endPoint.x;

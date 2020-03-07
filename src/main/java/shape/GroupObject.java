@@ -6,21 +6,16 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class GroupObject extends Shape {
-	private ArrayList<Shape> children;
+	private ArrayList<Shape> children = new ArrayList<>();
 
 	public GroupObject(CanvasPanel canvasPanel) {
 		this.paintPriority = 1;
 
-		this.children = new ArrayList<>();
 		this.children.addAll(canvasPanel.getSelectedShapes());
 		canvasPanel.removeSelectedShape();
 		this.setSelected(true);
 
 		this.calculateBound();
-	}
-
-	public ArrayList<Shape> getChildren() {
-		return this.children;
 	}
 
 	private void calculateBound() {
@@ -62,5 +57,4 @@ public class GroupObject extends Shape {
 			shape.move(dx, dy);
 		}
 	}
-
 }

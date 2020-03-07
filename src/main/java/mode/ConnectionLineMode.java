@@ -11,7 +11,7 @@ public class ConnectionLineMode extends Mode {
 	protected Port pressedPort = null;
 
 	protected Port getPort(CanvasPanel canvasPanel, Point point) {
-		ArrayList<Shape> shapes = canvasPanel.getShapes(point);
+		ArrayList<Shape> shapes = canvasPanel.getShapesAtPoint(point);
 		if (shapes.isEmpty()) {
 			return null;
 		}

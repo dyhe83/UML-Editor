@@ -18,7 +18,7 @@ public class SelectMode extends Mode {
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		super.mouseClicked(e);
-		((CanvasPanel) e.getSource()).setSelected(e.getPoint());
+		((CanvasPanel) e.getSource()).setShapesSelected(e.getPoint());
 	}
 
 	@Override
@@ -29,7 +29,7 @@ public class SelectMode extends Mode {
 
 		CanvasPanel canvasPanel = (CanvasPanel) e.getSource();
 		canvasPanel.setAllShapesSelectStatus(false);
-		ArrayList<Shape> shapes = canvasPanel.getShapes(this.pressedPoint);
+		ArrayList<Shape> shapes = canvasPanel.getShapesAtPoint(this.pressedPoint);
 		if (!shapes.isEmpty()) {
 			this.pressedShape = shapes.get(0);
 			this.pressedShape.setSelected(true);
@@ -44,7 +44,7 @@ public class SelectMode extends Mode {
 		CanvasPanel canvasPanel = (CanvasPanel) e.getSource();
 		canvasPanel.setAllShapesSelectStatus(false);
 		if (this.pressedShape == null) {
-			CanvasPanel.setSelected(this.pressedPoint, releasedPoint);
+			CanvasPanel.setShapesSelected(this.pressedPoint, releasedPoint);
 		} else {
 			int dx = (releasedPoint.x - this.pressedPoint.x);
 			int dy = (releasedPoint.y - this.pressedPoint.y);

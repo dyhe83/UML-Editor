@@ -11,7 +11,7 @@ import java.util.Properties;
 
 public class EditorForm extends JFrame {
 	private static final long serialVersionUID = 1L;
-	private static String configFileName = "src/main/resources/config.properties";
+	private static final String configFileName = "src/main/resources/config.properties";
 
 	public CanvasPanel canvasPanel;
 	private JPanel leftButtonPanel;
@@ -113,5 +113,4 @@ public class EditorForm extends JFrame {
 		});
 		this.getContentPane().add(this.canvasPanel);
 	}
-
 }
