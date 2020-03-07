@@ -5,6 +5,7 @@ import port.Port;
 import java.awt.*;
 
 public class Shape {
+	// TODO: should store position as Point type
 	protected int x = 0, y = 0, width = 100, height = 60;
 	int paintPriority = Integer.MAX_VALUE;
 	boolean selected = false;
