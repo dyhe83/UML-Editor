@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class Dong_JMenuBar extends JMenuBar {
 	private static final long serialVersionUID = 332118958862894912L;
-	private ArrayList<JMenu> menuList= new ArrayList<>();
+	private ArrayList<JMenu> menuList = new ArrayList<>();
 	private ArrayList<String> menuNameList = new ArrayList<>();
 
 	public void addNewMenu(String menuName) {
@@ -27,6 +27,7 @@ public class Dong_JMenuBar extends JMenuBar {
 			Action action = new AbstractAction(itemName) {
 				private static final long serialVersionUID = 8901907119923615116L;
 
+				@Override
 				public void actionPerformed(ActionEvent e) {
 					JMenuItem menuItem = ((JMenuItem) e.getSource());
 					JFrame jFrame = (JFrame) SwingUtilities.getWindowAncestor(menu);
@@ -70,5 +71,4 @@ public class Dong_JMenuBar extends JMenuBar {
 			this.add(menu);
 		}
 	}
-
 }

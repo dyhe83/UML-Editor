@@ -18,16 +18,6 @@ public class CanvasPanel extends JPanel {
 		shapeList = new ArrayList<>();
 	}
 
-	public void setShapesSelected(Point point) {
-		this.setAllShapesSelectStatus(false);
-		for (Shape shape : shapeList) {
-			if (shape.isInside(point)) {
-				shape.setSelected(true);
-				break;
-			}
-		}
-	}
-
 	public static void setShapesSelected(Point pressedPoint, Point releasedPoint) {
 		Point minPoint = new Point(Math.min(pressedPoint.x, releasedPoint.x),
 				Math.min(pressedPoint.y, releasedPoint.y));
@@ -38,6 +28,16 @@ public class CanvasPanel extends JPanel {
 			shape.setSelected(false);
 			if (rectangle.contains(new Rectangle(shape.getPosition(), shape.getSize()))) {
 				shape.setSelected(true);
+			}
+		}
+	}
+
+	public void setShapesSelected(Point point) {
+		this.setAllShapesSelectStatus(false);
+		for (Shape shape : shapeList) {
+			if (shape.isInside(point)) {
+				shape.setSelected(true);
+				break;
 			}
 		}
 	}
