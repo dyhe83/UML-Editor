@@ -8,10 +8,6 @@ import java.awt.event.MouseEvent;
 
 public class CompositionMode extends ConnectionLineMode {
 
-	public CompositionMode() {
-		this.pressedPort = null;
-	}
-
 	@Override
 	public void mousePressed(MouseEvent e) {
 		super.mousePressed(e);

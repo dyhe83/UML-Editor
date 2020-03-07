@@ -8,10 +8,6 @@ import java.awt.event.MouseEvent;
 
 public class GeneralizationMode extends ConnectionLineMode {
 
-	public GeneralizationMode() {
-		this.pressedPort = null;
-	}
-
 	@Override
 	public void mousePressed(MouseEvent e) {
 		super.mousePressed(e);

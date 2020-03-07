@@ -8,7 +8,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class ConnectionLineMode extends Mode {
-	protected Port pressedPort;
+	protected Port pressedPort = null;
 
 	protected Port getPort(CanvasPanel canvasPanel, Point point) {
 		ArrayList<Shape> shapes = canvasPanel.getShapes(point);
