@@ -9,15 +9,12 @@ import java.awt.*;
 @Getter
 @Setter
 public class Shape {
-	public int paintPriority = Integer.MAX_VALUE;
+	private int paintPriority = Integer.MAX_VALUE;
 
-	protected Point position = new Point();
-
-	protected Dimension size = new Dimension(100, 60);
-
-	private boolean selected = false;
-
+	private Point position = new Point();
+	private Dimension size = new Dimension(100, 60);
 	private String name = "";
+	private boolean selected = false;
 
 	public Shape() {
 

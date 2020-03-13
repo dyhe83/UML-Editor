@@ -12,11 +12,7 @@ import java.util.Collection;
 @Getter
 public class CanvasPanel extends JPanel {
 	private static final long serialVersionUID = -8315032390183761978L;
-	private static ArrayList<Shape> shapeList;
-
-	public CanvasPanel() {
-		shapeList = new ArrayList<>();
-	}
+	private static ArrayList<Shape> shapeList = new ArrayList<>();
 
 	public static void setShapesSelected(Point pressedPoint, Point releasedPoint) {
 		Point minPoint = new Point(Math.min(pressedPoint.x, releasedPoint.x),

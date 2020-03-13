@@ -13,8 +13,8 @@ public class EditorForm extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private static final String configFileName = "src/main/resources/config.properties";
 
-	public CanvasPanel canvasPanel;
-	private JPanel leftButtonPanel;
+	private CanvasPanel canvasPanel = new CanvasPanel();
+	private JPanel leftButtonPanel = new JPanel();
 
 	public EditorForm() {
 		this.getContentPane().setLayout(null);
@@ -37,7 +37,6 @@ public class EditorForm extends JFrame {
 	}
 
 	private void initLeftButtonPanel() {
-		this.leftButtonPanel = new JPanel();
 		this.leftButtonPanel.setLayout(null);
 		this.leftButtonPanel.setBounds(0, 0, 120, 640);
 		this.getContentPane().add(this.leftButtonPanel);
@@ -73,7 +72,6 @@ public class EditorForm extends JFrame {
 	}
 
 	private void initPanel() {
-		this.canvasPanel = new CanvasPanel();
 		this.canvasPanel.setLayout(null);
 		this.canvasPanel.setBounds(150, 15, 750, 540);
 		this.canvasPanel.setBackground(Color.WHITE);
