@@ -12,9 +12,6 @@ public class SelectMode extends Mode {
 	private Shape pressedShape;
 	private Point pressedPoint;
 
-	public SelectMode() {
-	}
-
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		((CanvasPanel) e.getSource()).setShapesSelected(e.getPoint());
