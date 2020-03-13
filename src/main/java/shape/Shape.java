@@ -7,19 +7,16 @@ import port.Port;
 import java.awt.*;
 
 @Getter
+@Setter
 public class Shape {
 	public int paintPriority = Integer.MAX_VALUE;
 
-	@Setter
 	protected Point position = new Point();
 
-	@Setter
 	protected Dimension size = new Dimension(100, 60);
 
-	@Setter
 	private boolean selected = false;
 
-	@Setter
 	private String name = "";
 
 	public Shape() {

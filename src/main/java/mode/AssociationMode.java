@@ -12,14 +12,14 @@ public class AssociationMode extends ConnectionLineMode {
 	public void mousePressed(MouseEvent e) {
 		super.mousePressed(e);
 		CanvasPanel canvasPanel = (CanvasPanel) e.getSource();
-		this.pressedPort = super.getPort(canvasPanel, e.getPoint());
+		this.pressedPort = this.getPort(canvasPanel, e.getPoint());
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		super.mouseReleased(e);
 		CanvasPanel canvasPanel = (CanvasPanel) e.getSource();
-		Port releasedPort = super.getPort(canvasPanel, e.getPoint());
+		Port releasedPort = this.getPort(canvasPanel, e.getPoint());
 		if (this.pressedPort != null && releasedPort != null) {
 			canvasPanel.addShape(new AssociationLine(this.pressedPort, releasedPort));
 		}

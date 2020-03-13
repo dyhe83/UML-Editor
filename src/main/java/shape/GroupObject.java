@@ -11,7 +11,7 @@ public class GroupObject extends Shape {
 	private ArrayList<Shape> children = new ArrayList<>();
 
 	public GroupObject(CanvasPanel canvasPanel) {
-		this.paintPriority = 1;
+		this.setPaintPriority(1);
 
 		this.children.addAll(canvasPanel.getSelectedShapes());
 		canvasPanel.removeSelectedShape();

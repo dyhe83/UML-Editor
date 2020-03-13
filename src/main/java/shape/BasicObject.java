@@ -10,7 +10,7 @@ public class BasicObject extends Shape {
 
 	public BasicObject(Point point) {
 		super(point);
-		this.paintPriority = 2;
+		this.setPaintPriority(2);
 	}
 
 	@Override
@@ -34,8 +34,11 @@ public class BasicObject extends Shape {
 				closestPort = port;
 			}
 		}
-		if (closestPort == null)
+
+		if (closestPort == null) {
 			throw new NullPointerException();
+		}
+
 		return closestPort;
 	}
 }

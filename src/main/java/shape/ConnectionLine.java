@@ -11,7 +11,7 @@ public class ConnectionLine extends Shape {
 	public ConnectionLine(Port fromPort, Port toPort) {
 		this.fromPort = fromPort;
 		this.toPort = toPort;
-		super.paintPriority = 3;
+		this.setPaintPriority(3);
 	}
 
 	@Override
@@ -53,10 +53,11 @@ public class ConnectionLine extends Shape {
 		double y21 = m * x21 + f;
 		double y22 = m * x22 + f;
 
-		if (Point.distance(x1, y1, x21, y21) < Point.distance(x1, y1, x22, y22))
+		if (Point.distance(x1, y1, x21, y21) < Point.distance(x1, y1, x22, y22)) {
 			return (new Point((int) x21, (int) y21));
-		else
+		} else {
 			return (new Point((int) x22, (int) y22));
+		}
 	}
 
 	Point[] getVerticalPoint(Point startPoint, Point endPoint) {
