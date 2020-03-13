@@ -21,18 +21,22 @@ public class GroupObject extends Shape {
 	}
 
 	private void calculateBound() {
-		this.x = Integer.MAX_VALUE;
-		this.y = Integer.MAX_VALUE;
-		this.width = Integer.MIN_VALUE;
-		this.height = Integer.MIN_VALUE;
+		int x = Integer.MAX_VALUE;
+		int y = Integer.MAX_VALUE;
+		int width = Integer.MIN_VALUE;
+		int height = Integer.MIN_VALUE;
+
 		for (Shape shape : this.children) {
-			this.x = Math.min(this.x, shape.x);
-			this.y = Math.min(this.y, shape.y);
-			this.width = Math.max(this.width, shape.x + shape.width);
-			this.height = Math.max(this.height, shape.y + shape.height);
+			x = Math.min(x, shape.getX());
+			y = Math.min(y, shape.getY());
+			width = Math.max(width, shape.getX() + shape.width);
+			height = Math.max(height, shape.getY() + shape.height);
 		}
-		this.width -= this.x;
-		this.height -= this.y;
+
+		this.setX(x);
+		this.setY(y);
+		this.width = width - x;
+		this.height = height - y;
 	}
 
 	@Override
@@ -47,7 +51,7 @@ public class GroupObject extends Shape {
 	@Override
 	public void paintShape(Graphics g) {
 		g.setColor(new Color(50, 50, 255, 127));
-		g.fillRect(this.x, this.y, this.width, this.height);
+		g.fillRect(this.getX(), this.getY(), this.width, this.height);
 		for (Shape shape : this.children) {
 			shape.repaint(g);
 		}

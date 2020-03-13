@@ -9,8 +9,12 @@ import java.awt.*;
 @Getter
 public class Shape {
 	public int paintPriority = Integer.MAX_VALUE;
-	// TODO: should store position as Point type
-	protected int x = 0, y = 0, width = 100, height = 60;
+
+	@Setter
+	protected Point position = new Point();
+
+	protected int width = 100, height = 60;
+
 	@Setter
 	private boolean selected = false;
 
@@ -21,18 +25,29 @@ public class Shape {
 
 	}
 
-	public Shape(Point point) {
-		this.x = point.x;
-		this.y = point.y;
+	public Shape(Point position) {
+		this.setPosition(position);
 	}
 
 	public void move(int dx, int dy) {
-		this.x += dx;
-		this.y += dy;
+		this.setX(this.getX() + dx);
+		this.setY(this.getY() + dy);
 	}
 
-	public Point getPosition() {
-		return new Point(this.x, this.y);
+	public int getX() {
+		return this.getPosition().x;
+	}
+
+	public void setX(int x) {
+		this.getPosition().x = x;
+	}
+
+	public int getY() {
+		return this.getPosition().y;
+	}
+
+	public void setY(int y) {
+		this.getPosition().y = y;
 	}
 
 	public Dimension getSize() {
@@ -44,7 +59,7 @@ public class Shape {
 	}
 
 	public boolean isInside(Point mousePosition) {
-		Rectangle rectangle = new Rectangle(this.x, this.y, this.width, this.height);
+		Rectangle rectangle = new Rectangle(this.getX(), this.getY(), this.width, this.height);
 		return rectangle.contains(mousePosition.x, mousePosition.y);
 	}
 
@@ -69,6 +84,6 @@ public class Shape {
 	}
 
 	protected void paintName(Graphics g) {
-		g.drawString(this.name, this.x, this.y + this.height / 2);
+		g.drawString(this.name, this.getX(), this.getY() + this.height / 2);
 	}
 }

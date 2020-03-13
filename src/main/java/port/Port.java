@@ -17,7 +17,9 @@ public class Port extends Shape {
 	}
 
 	public Point getMidPoint() {
-		return new Point(this.x + this.width / 2, this.y + this.height / 2);
+		int x = this.getX() + this.width / 2;
+		int y = this.getY() + this.height / 2;
+		return new Point(x, y);
 	}
 
 	public void calibrateBound(BasicObject obj) {

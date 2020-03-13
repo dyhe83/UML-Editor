@@ -10,9 +10,14 @@ public class BasicClass extends BasicObject {
 
 	@Override
 	public void paintShape(Graphics g) {
+		int x = this.getX();
+		int y = this.getY();
+		int width = super.width;
+		int height = super.height;
+
 		g.setColor(Color.BLACK);
-		g.drawRect(super.x, super.y, super.width, super.height);
-		g.drawLine(super.x, super.y + super.height / 3, super.x + super.width, super.y + super.height / 3);
-		g.drawLine(super.x, super.y + super.height / 3 * 2, super.x + super.width, super.y + super.height / 3 * 2);
+		g.drawRect(x, y, width, height);
+		g.drawLine(x, y + height / 3, x + width, y + height / 3);
+		g.drawLine(x, y + height / 3 * 2, x + width, y + height / 3 * 2);
 	}
 }

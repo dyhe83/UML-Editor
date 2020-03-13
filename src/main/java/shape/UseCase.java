@@ -11,6 +11,6 @@ public class UseCase extends BasicObject {
 	@Override
 	public void paintShape(Graphics g) {
 		g.setColor(Color.BLACK);
-		g.drawOval(super.x, super.y, super.width, super.height);
+		g.drawOval(this.getX(), this.getY(), super.width, super.height);
 	}
 }
