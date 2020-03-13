@@ -17,13 +17,11 @@ public class SelectMode extends Mode {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		super.mouseClicked(e);
 		((CanvasPanel) e.getSource()).setShapesSelected(e.getPoint());
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		super.mousePressed(e);
 		this.pressedPoint = e.getPoint();
 		this.pressedShape = null;
 
@@ -39,7 +37,6 @@ public class SelectMode extends Mode {
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		super.mouseReleased(e);
 		Point releasedPoint = e.getPoint();
 		CanvasPanel canvasPanel = (CanvasPanel) e.getSource();
 		canvasPanel.setAllShapesSelectStatus(false);

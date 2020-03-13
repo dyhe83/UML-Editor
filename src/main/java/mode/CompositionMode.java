@@ -10,14 +10,12 @@ public class CompositionMode extends ConnectionLineMode {
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		super.mousePressed(e);
 		CanvasPanel canvasPanel = (CanvasPanel) e.getSource();
 		this.pressedPort = this.getPort(canvasPanel, e.getPoint());
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		super.mouseReleased(e);
 		Port releasedPort = this.getPort((CanvasPanel) e.getSource(), e.getPoint());
 		if (this.pressedPort != null && releasedPort != null) {
 			CanvasPanel canvasPanel = (CanvasPanel) e.getSource();
