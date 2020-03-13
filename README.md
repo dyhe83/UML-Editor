@@ -5,7 +5,7 @@
 一個簡單的 Java UML 編輯器
 
 ## How to use
-```
+```sh
 $ git clone https://github.com/dyhe83/UML-Editor.git --depth=1
 $ cd UML-Editor
 $ ./gradlew run
