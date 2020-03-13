@@ -8,8 +8,8 @@ import java.awt.*;
 public class Port extends Shape {
 
 	public Port() {
-		this.height = 10;
-		this.width = 10;
+		this.setWidth(10);
+		this.setHeight(10);
 	}
 
 	public Point getBorderPoint() {
@@ -17,8 +17,8 @@ public class Port extends Shape {
 	}
 
 	public Point getMidPoint() {
-		int x = this.getX() + this.width / 2;
-		int y = this.getY() + this.height / 2;
+		int x = this.getX() + this.getWidth() / 2;
+		int y = this.getY() + this.getHeight() / 2;
 		return new Point(x, y);
 	}
 

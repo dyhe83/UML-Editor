@@ -12,8 +12,8 @@ public class BasicClass extends BasicObject {
 	public void paintShape(Graphics g) {
 		int x = this.getX();
 		int y = this.getY();
-		int width = super.width;
-		int height = super.height;
+		int width = this.getWidth();
+		int height = this.getHeight();
 
 		g.setColor(Color.BLACK);
 		g.drawRect(x, y, width, height);

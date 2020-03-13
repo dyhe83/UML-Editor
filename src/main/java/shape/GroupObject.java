@@ -29,14 +29,14 @@ public class GroupObject extends Shape {
 		for (Shape shape : this.children) {
 			x = Math.min(x, shape.getX());
 			y = Math.min(y, shape.getY());
-			width = Math.max(width, shape.getX() + shape.width);
-			height = Math.max(height, shape.getY() + shape.height);
+			width = Math.max(width, shape.getX() + shape.getWidth());
+			height = Math.max(height, shape.getY() + shape.getHeight());
 		}
 
 		this.setX(x);
 		this.setY(y);
-		this.width = width - x;
-		this.height = height - y;
+		this.setWidth(width - x);
+		this.setHeight(height - y);
 	}
 
 	@Override
@@ -51,7 +51,7 @@ public class GroupObject extends Shape {
 	@Override
 	public void paintShape(Graphics g) {
 		g.setColor(new Color(50, 50, 255, 127));
-		g.fillRect(this.getX(), this.getY(), this.width, this.height);
+		g.fillRect(this.getX(), this.getY(), this.getWidth(), this.getHeight());
 		for (Shape shape : this.children) {
 			shape.repaint(g);
 		}

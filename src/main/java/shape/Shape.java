@@ -13,7 +13,8 @@ public class Shape {
 	@Setter
 	protected Point position = new Point();
 
-	protected int width = 100, height = 60;
+	@Setter
+	protected Dimension size = new Dimension(100, 60);
 
 	@Setter
 	private boolean selected = false;
@@ -50,8 +51,20 @@ public class Shape {
 		this.getPosition().y = y;
 	}
 
-	public Dimension getSize() {
-		return (new Dimension(this.width, this.height));
+	public int getWidth() {
+		return this.getSize().width;
+	}
+
+	public void setWidth(int width) {
+		this.getSize().width = width;
+	}
+
+	public int getHeight() {
+		return this.getSize().height;
+	}
+
+	public void setHeight(int height) {
+		this.getSize().height = height;
 	}
 
 	public Port getClosestPort(Point point) {
@@ -59,7 +72,7 @@ public class Shape {
 	}
 
 	public boolean isInside(Point mousePosition) {
-		Rectangle rectangle = new Rectangle(this.getX(), this.getY(), this.width, this.height);
+		Rectangle rectangle = new Rectangle(this.getPosition(), this.getSize());
 		return rectangle.contains(mousePosition.x, mousePosition.y);
 	}
 
@@ -84,6 +97,6 @@ public class Shape {
 	}
 
 	protected void paintName(Graphics g) {
-		g.drawString(this.name, this.getX(), this.getY() + this.height / 2);
+		g.drawString(this.name, this.getX(), this.getY() + this.getHeight() / 2);
 	}
 }

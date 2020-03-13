@@ -17,7 +17,7 @@ public class BasicObject extends Shape {
 	protected void paintPort(Graphics g) {
 		for (Port port : this.ports) {
 			port.calibrateBound(this);
-			g.fillRect(port.getX(), port.getY(), port.width, port.height);
+			g.fillRect(port.getX(), port.getY(), port.getWidth(), port.getHeight());
 		}
 	}
 
