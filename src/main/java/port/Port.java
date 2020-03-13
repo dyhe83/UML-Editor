@@ -5,8 +5,7 @@ import shape.Shape;
 
 import java.awt.*;
 
-public class Port extends Shape {
-
+public abstract class Port extends Shape {
 	public Port() {
 		this.setWidth(10);
 		this.setHeight(10);
@@ -22,7 +21,10 @@ public class Port extends Shape {
 		return new Point(x, y);
 	}
 
-	public void calibrateBound(BasicObject obj) {
+	public abstract void calibrateBound(BasicObject obj);
 
+	@Override
+	public void paint(Graphics g) {
+		g.fillRect(this.getX(), this.getY(), this.getWidth(), this.getHeight());
 	}
 }

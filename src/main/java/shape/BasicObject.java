@@ -4,9 +4,13 @@ import port.*;
 
 import java.awt.*;
 
-public class BasicObject extends Shape {
+public abstract class BasicObject extends Shape {
 
 	private Port[] ports = {new UpPort(), new DownPort(), new LeftPort(), new RightPort()};
+
+	public BasicObject() {
+		this.setPaintPriority(2);
+	}
 
 	public BasicObject(Point point) {
 		super(point);
@@ -14,11 +18,25 @@ public class BasicObject extends Shape {
 	}
 
 	@Override
+	public void paint(Graphics g) {
+		this.paintShape(g);
+		if (this.isSelected()) {
+			this.paintPort(g);
+		}
+		this.paintName(g);
+	}
+
+	protected abstract void paintShape(Graphics g);
+
 	protected void paintPort(Graphics g) {
 		for (Port port : this.ports) {
 			port.calibrateBound(this);
-			g.fillRect(port.getX(), port.getY(), port.getWidth(), port.getHeight());
+			port.paint(g);
 		}
+	}
+
+	protected void paintName(Graphics g) {
+		g.drawString(this.getName(), this.getX(), this.getY() + this.getHeight() / 2);
 	}
 
 	@Override

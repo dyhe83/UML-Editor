@@ -4,7 +4,7 @@ import port.Port;
 
 import java.awt.*;
 
-public class ConnectionLine extends Shape {
+public abstract class ConnectionLine extends Shape {
 	private final double polygonSize = 300;
 	Port fromPort, toPort;
 
@@ -34,8 +34,7 @@ public class ConnectionLine extends Shape {
 		g.drawLine(x1, y1, x2, y2);
 	}
 
-	protected void paintArrow(Graphics g) {
-	}
+	protected abstract void paintArrow(Graphics g);
 
 	protected Point getRelayPoint(Point startPoint, Point endPoint) {
 		double x1 = startPoint.x;

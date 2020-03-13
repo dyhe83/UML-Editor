@@ -6,7 +6,7 @@ import view.CanvasPanel;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class GroupObject extends Shape {
+public class GroupObject extends BasicObject {
 	@Getter
 	private ArrayList<Shape> children = new ArrayList<>();
 
@@ -55,6 +55,11 @@ public class GroupObject extends Shape {
 		for (Shape shape : this.children) {
 			shape.repaint(g);
 		}
+	}
+
+	@Override
+	protected void paintPort(Graphics g) {
+		// GroupObject shouldn't display 'port'
 	}
 
 	@Override

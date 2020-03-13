@@ -8,7 +8,7 @@ import java.awt.*;
 
 @Getter
 @Setter
-public class Shape {
+public abstract class Shape {
 	private int paintPriority = Integer.MAX_VALUE;
 
 	private Point position = new Point();
@@ -70,27 +70,9 @@ public class Shape {
 		return rectangle.contains(mousePosition.x, mousePosition.y);
 	}
 
-	public void paint(Graphics g) {
-		this.paintShape(g);
-		if (this.selected) {
-			this.paintPort(g);
-		}
-		this.paintName(g);
-	}
+	public abstract void paint(Graphics g);
 
 	public void repaint(Graphics g) {
 		this.paint(g);
-	}
-
-	protected void paintShape(Graphics g) {
-
-	}
-
-	protected void paintPort(Graphics g) {
-
-	}
-
-	protected void paintName(Graphics g) {
-		g.drawString(this.name, this.getX(), this.getY() + this.getHeight() / 2);
 	}
 }
