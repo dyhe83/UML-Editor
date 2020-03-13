@@ -6,11 +6,11 @@ import view.CanvasPanel;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class GroupObject extends BasicObject {
+public class UMLGroup extends UMLBasicObject {
 	@Getter
-	private ArrayList<Shape> children = new ArrayList<>();
+	private ArrayList<UMLShape> children = new ArrayList<>();
 
-	public GroupObject(CanvasPanel canvasPanel) {
+	public UMLGroup(CanvasPanel canvasPanel) {
 		this.setPaintPriority(1);
 
 		this.children.addAll(canvasPanel.getSelectedShapes());
@@ -26,11 +26,11 @@ public class GroupObject extends BasicObject {
 		int width = Integer.MIN_VALUE;
 		int height = Integer.MIN_VALUE;
 
-		for (Shape shape : this.children) {
-			x = Math.min(x, shape.getX());
-			y = Math.min(y, shape.getY());
-			width = Math.max(width, shape.getX() + shape.getWidth());
-			height = Math.max(height, shape.getY() + shape.getHeight());
+		for (UMLShape UMLShape : this.children) {
+			x = Math.min(x, UMLShape.getX());
+			y = Math.min(y, UMLShape.getY());
+			width = Math.max(width, UMLShape.getX() + UMLShape.getWidth());
+			height = Math.max(height, UMLShape.getY() + UMLShape.getHeight());
 		}
 
 		this.setX(x);
@@ -43,8 +43,8 @@ public class GroupObject extends BasicObject {
 	public void setSelected(boolean selected) {
 		super.setSelected(selected);
 
-		for (Shape shape : this.children) {
-			shape.setSelected(selected);
+		for (UMLShape UMLShape : this.children) {
+			UMLShape.setSelected(selected);
 		}
 	}
 
@@ -52,8 +52,8 @@ public class GroupObject extends BasicObject {
 	public void paintShape(Graphics g) {
 		g.setColor(new Color(50, 50, 255, 127));
 		g.fillRect(this.getX(), this.getY(), this.getWidth(), this.getHeight());
-		for (Shape shape : this.children) {
-			shape.repaint(g);
+		for (UMLShape UMLShape : this.children) {
+			UMLShape.repaint(g);
 		}
 	}
 
@@ -65,8 +65,8 @@ public class GroupObject extends BasicObject {
 	@Override
 	public void move(int dx, int dy) {
 		super.move(dx, dy);
-		for (Shape shape : this.children) {
-			shape.move(dx, dy);
+		for (UMLShape UMLShape : this.children) {
+			UMLShape.move(dx, dy);
 		}
 	}
 }

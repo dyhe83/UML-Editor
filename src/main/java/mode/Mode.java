@@ -5,8 +5,9 @@ import lombok.Setter;
 
 import javax.swing.event.MouseInputListener;
 import java.awt.event.MouseEvent;
+import java.io.Serializable;
 
-public class Mode implements MouseInputListener {
+public class Mode implements MouseInputListener, Serializable {
 	@Getter
 	@Setter
 	private static Mode currentMode;

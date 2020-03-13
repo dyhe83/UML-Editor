@@ -1,15 +1,15 @@
 package mode;
 
-import shape.Shape;
+import shape.UMLShape;
 import view.CanvasPanel;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
-import java.util.ArrayList;
+import java.util.List;
 
 public class SelectMode extends Mode {
 
-	private Shape pressedShape;
+	private UMLShape pressedUMLShape;
 	private Point pressedPoint;
 
 	@Override
@@ -20,14 +20,14 @@ public class SelectMode extends Mode {
 	@Override
 	public void mousePressed(MouseEvent e) {
 		this.pressedPoint = e.getPoint();
-		this.pressedShape = null;
+		this.pressedUMLShape = null;
 
 		CanvasPanel canvasPanel = (CanvasPanel) e.getSource();
 		canvasPanel.setAllShapesSelectStatus(false);
-		ArrayList<Shape> shapes = canvasPanel.getShapesAtPoint(this.pressedPoint);
-		if (!shapes.isEmpty()) {
-			this.pressedShape = shapes.get(0);
-			this.pressedShape.setSelected(true);
+		List<UMLShape> umlShapes = canvasPanel.getShapesAtPoint(this.pressedPoint);
+		if (!umlShapes.isEmpty()) {
+			this.pressedUMLShape = umlShapes.get(0);
+			this.pressedUMLShape.setSelected(true);
 		}
 		canvasPanel.repaint();
 	}
@@ -37,13 +37,13 @@ public class SelectMode extends Mode {
 		Point releasedPoint = e.getPoint();
 		CanvasPanel canvasPanel = (CanvasPanel) e.getSource();
 		canvasPanel.setAllShapesSelectStatus(false);
-		if (this.pressedShape == null) {
+		if (this.pressedUMLShape == null) {
 			CanvasPanel.setShapesSelected(this.pressedPoint, releasedPoint);
 		} else {
 			int dx = (releasedPoint.x - this.pressedPoint.x);
 			int dy = (releasedPoint.y - this.pressedPoint.y);
-			this.pressedShape.move(dx, dy);
-			this.pressedShape.setSelected(true);
+			this.pressedUMLShape.move(dx, dy);
+			this.pressedUMLShape.setSelected(true);
 		}
 		canvasPanel.repaint();
 	}

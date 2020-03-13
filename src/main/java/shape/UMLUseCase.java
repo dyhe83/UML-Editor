@@ -2,9 +2,9 @@ package shape;
 
 import java.awt.*;
 
-public class UseCase extends BasicObject {
+public class UMLUseCase extends UMLBasicObject {
 
-	public UseCase(Point point) {
+	public UMLUseCase(Point point) {
 		super(point);
 	}
 

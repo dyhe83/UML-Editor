@@ -1,6 +1,6 @@
 package port;
 
-import shape.BasicObject;
+import shape.UMLBasicObject;
 
 import java.awt.*;
 
@@ -12,7 +12,7 @@ public class DownPort extends Port {
 	}
 
 	@Override
-	public void calibrateBound(BasicObject obj) {
+	public void calibrateBound(UMLBasicObject obj) {
 		int x = obj.getX() + obj.getWidth() / 2 - this.getWidth() / 2;
 		int y = obj.getY() + obj.getHeight() - this.getHeight();
 		this.setPosition(new Point(x, y));

@@ -1,14 +1,14 @@
 package mode;
 
-import shape.BasicClass;
+import shape.UMLUseCase;
 import view.CanvasPanel;
 
 import java.awt.event.MouseEvent;
 
-public class BasicClassMode extends BasicObjectMode {
+public class UMLUseCaseMode extends Mode {
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		CanvasPanel canvasPanel = (CanvasPanel) e.getSource();
-		canvasPanel.addShape(new BasicClass(e.getPoint()));
+		canvasPanel.addShape(new UMLUseCase(e.getPoint()));
 	}
 }

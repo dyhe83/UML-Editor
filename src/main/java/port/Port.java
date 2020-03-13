@@ -1,11 +1,11 @@
 package port;
 
-import shape.BasicObject;
-import shape.Shape;
+import shape.UMLBasicObject;
+import shape.UMLShape;
 
 import java.awt.*;
 
-public abstract class Port extends Shape {
+public abstract class Port extends UMLShape {
 	public Port() {
 		this.setWidth(10);
 		this.setHeight(10);
@@ -21,7 +21,7 @@ public abstract class Port extends Shape {
 		return new Point(x, y);
 	}
 
-	public abstract void calibrateBound(BasicObject obj);
+	public abstract void calibrateBound(UMLBasicObject obj);
 
 	@Override
 	public void paint(Graphics g) {

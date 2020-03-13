@@ -2,9 +2,9 @@ package shape;
 
 import java.awt.*;
 
-public class BasicClass extends BasicObject {
+public class UMLBasicClass extends UMLBasicObject {
 
-	public BasicClass(Point point) {
+	public UMLBasicClass(Point point) {
 		super(point);
 	}
 

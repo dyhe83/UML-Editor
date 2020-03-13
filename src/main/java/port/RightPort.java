@@ -1,6 +1,6 @@
 package port;
 
-import shape.BasicObject;
+import shape.UMLBasicObject;
 
 import java.awt.*;
 
@@ -12,7 +12,7 @@ public class RightPort extends Port {
 	}
 
 	@Override
-	public void calibrateBound(BasicObject obj) {
+	public void calibrateBound(UMLBasicObject obj) {
 		int x = obj.getX() + obj.getWidth() - this.getWidth();
 		int y = obj.getY() + obj.getHeight() / 2 - this.getHeight() / 2;
 		this.setPosition(new Point(x, y));

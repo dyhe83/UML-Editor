@@ -12,10 +12,10 @@ public class GeneralizationLine extends ConnectionLine {
 
 	@Override
 	protected void paintArrow(Graphics g) {
-		Point relayPoint = this.getRelayPoint(this.fromPort.getBorderPoint(), this.toPort.getBorderPoint());
-		Point[] point = this.getVerticalPoint(relayPoint, this.toPort.getBorderPoint());
-		int[] xSet = {point[0].x, point[1].x, this.toPort.getBorderPoint().x};
-		int[] ySet = {point[0].y, point[1].y, this.toPort.getBorderPoint().y};
+		Point relayPoint = this.getRelayPoint(this.getFromPort().getBorderPoint(), this.getToPort().getBorderPoint());
+		Point[] verticalPoints = this.getVerticalPoints(relayPoint, this.getToPort().getBorderPoint());
+		int[] xSet = {verticalPoints[0].x, verticalPoints[1].x, this.getToPort().getBorderPoint().x};
+		int[] ySet = {verticalPoints[0].y, verticalPoints[1].y, this.getToPort().getBorderPoint().y};
 		g.drawPolygon(new Polygon(xSet, ySet, 3));
 	}
 }

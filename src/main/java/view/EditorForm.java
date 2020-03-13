@@ -10,8 +10,7 @@ import java.io.*;
 import java.util.Properties;
 
 public class EditorForm extends JFrame {
-	private static final long serialVersionUID = 1L;
-	private static final String configFileName = "src/main/resources/config.properties";
+	private static final String SRC_MAIN_RESOURCES_CONFIG_PROPERTIES = "src/main/resources/config.properties";
 
 	private CanvasPanel canvasPanel = new CanvasPanel();
 	private JPanel leftButtonPanel = new JPanel();
@@ -22,7 +21,7 @@ public class EditorForm extends JFrame {
 		this.initLeftButtonPanel();
 		this.initPanel();
 		this.initFrame();
-		((imgButton) this.leftButtonPanel.getComponent(0)).actionPerformed(null);
+		((ImgButton) this.leftButtonPanel.getComponent(0)).actionPerformed(null);
 	}
 
 	private void initFrame() {
@@ -43,25 +42,25 @@ public class EditorForm extends JFrame {
 
 		Properties properties = new Properties();
 		try {
-			InputStream inputStream = new FileInputStream(configFileName);
+			InputStream inputStream = new FileInputStream(SRC_MAIN_RESOURCES_CONFIG_PROPERTIES);
 			properties.load(inputStream);
 		} catch (FileNotFoundException fileNotFoundException) {
-			System.err.println("config file not found:" + configFileName);
+			System.err.println("config file not found:" + SRC_MAIN_RESOURCES_CONFIG_PROPERTIES);
 			fileNotFoundException.printStackTrace();
 		} catch (IOException ioException) {
 			ioException.printStackTrace();
 		}
 
-		this.leftButtonPanel.add(new imgButton(0, new File(properties.getProperty("img.select")), new SelectMode()));
-		this.leftButtonPanel.add(new imgButton(1, new File(properties.getProperty("img.association")), new AssociationMode()));
-		this.leftButtonPanel.add(new imgButton(2, new File(properties.getProperty("img.generalization")), new GeneralizationMode()));
-		this.leftButtonPanel.add(new imgButton(3, new File(properties.getProperty("img.composition")), new CompositionMode()));
-		this.leftButtonPanel.add(new imgButton(4, new File(properties.getProperty("img.basic_class")), new BasicClassMode()));
-		this.leftButtonPanel.add(new imgButton(5, new File(properties.getProperty("img.use_case")), new UseCaseMode()));
+		this.leftButtonPanel.add(new ImgButton(0, new File(properties.getProperty("img.select")), new SelectMode()));
+		this.leftButtonPanel.add(new ImgButton(1, new File(properties.getProperty("img.association")), new AssociationMode()));
+		this.leftButtonPanel.add(new ImgButton(2, new File(properties.getProperty("img.generalization")), new GeneralizationMode()));
+		this.leftButtonPanel.add(new ImgButton(3, new File(properties.getProperty("img.composition")), new CompositionMode()));
+		this.leftButtonPanel.add(new ImgButton(4, new File(properties.getProperty("img.basic_class")), new UMLBasicClassMode()));
+		this.leftButtonPanel.add(new ImgButton(5, new File(properties.getProperty("img.use_case")), new UMLUseCaseMode()));
 	}
 
 	private void initMenuBar() {
-		Dong_JMenuBar menuBar = new Dong_JMenuBar();
+		DongJMenuBar menuBar = new DongJMenuBar();
 		menuBar.addNewMenu("File");
 		menuBar.addNewMenuItem("File", new String[]{"New", "Save", "Open"});
 		menuBar.addNewMenu("Edit");

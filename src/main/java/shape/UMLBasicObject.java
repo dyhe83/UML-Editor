@@ -4,15 +4,15 @@ import port.*;
 
 import java.awt.*;
 
-public abstract class BasicObject extends Shape {
+public abstract class UMLBasicObject extends UMLShape {
 
 	private Port[] ports = {new UpPort(), new DownPort(), new LeftPort(), new RightPort()};
 
-	public BasicObject() {
+	public UMLBasicObject() {
 		this.setPaintPriority(2);
 	}
 
-	public BasicObject(Point point) {
+	public UMLBasicObject(Point point) {
 		super(point);
 		this.setPaintPriority(2);
 	}
@@ -39,14 +39,13 @@ public abstract class BasicObject extends Shape {
 		g.drawString(this.getName(), this.getX(), this.getY() + this.getHeight() / 2);
 	}
 
-	@Override
 	public Port getClosestPort(Point point) {
 		Port closestPort = null;
 		double minDis = Double.MAX_VALUE;
 		for (Port port : this.ports) {
 			port.calibrateBound(this);
-			Point midPoint = port.getMidPoint();
-			double dis = Point.distance(point.x, point.y, midPoint.x, midPoint.y);
+
+			double dis = point.distance(port.getMidPoint());
 			if (dis < minDis) {
 				minDis = dis;
 				closestPort = port;

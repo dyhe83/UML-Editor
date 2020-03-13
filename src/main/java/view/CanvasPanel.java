@@ -1,18 +1,18 @@
 package view;
 
 import lombok.Getter;
-import shape.GroupObject;
-import shape.Shape;
+import shape.UMLGroup;
+import shape.UMLShape;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 @Getter
 public class CanvasPanel extends JPanel {
-	private static final long serialVersionUID = -8315032390183761978L;
-	private static ArrayList<Shape> shapeList = new ArrayList<>();
+	private static List<UMLShape> umlShapes = new ArrayList<>();
 
 	public static void setShapesSelected(Point pressedPoint, Point releasedPoint) {
 		Point minPoint = new Point(Math.min(pressedPoint.x, releasedPoint.x),
@@ -20,19 +20,19 @@ public class CanvasPanel extends JPanel {
 		Point maxPoint = new Point(Math.max(pressedPoint.x, releasedPoint.x),
 				Math.max(pressedPoint.y, releasedPoint.y));
 		Rectangle rectangle = new Rectangle(minPoint.x, minPoint.y, maxPoint.x - minPoint.x, maxPoint.y - minPoint.y);
-		for (Shape shape : shapeList) {
-			shape.setSelected(false);
-			if (rectangle.contains(new Rectangle(shape.getPosition(), shape.getSize()))) {
-				shape.setSelected(true);
+		for (UMLShape UMLShape : umlShapes) {
+			UMLShape.setSelected(false);
+			if (rectangle.contains(new Rectangle(UMLShape.getPosition(), UMLShape.getSize()))) {
+				UMLShape.setSelected(true);
 			}
 		}
 	}
 
 	public void setShapesSelected(Point point) {
 		this.setAllShapesSelectStatus(false);
-		for (Shape shape : shapeList) {
-			if (shape.isInside(point)) {
-				shape.setSelected(true);
+		for (UMLShape umlShape : umlShapes) {
+			if (umlShape.isInside(point)) {
+				umlShape.setSelected(true);
 				break;
 			}
 		}
@@ -42,59 +42,59 @@ public class CanvasPanel extends JPanel {
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		this.reSortShapeList();
-		for (Shape shape : shapeList) {
-			shape.repaint(g);
+		for (UMLShape umlShape : umlShapes) {
+			umlShape.repaint(g);
 		}
 	}
 
-	public ArrayList<Shape> getShapesAtPoint(Point point) {
-		ArrayList<Shape> shapes = new ArrayList<>();
-		for (Shape shape : shapeList) {
-			if (shape.isInside(point)) {
-				shapes.add(shape);
+	public List<UMLShape> getShapesAtPoint(Point point) {
+		List<UMLShape> umlShapes = new ArrayList<>();
+		for (UMLShape umlShape : CanvasPanel.umlShapes) {
+			if (umlShape.isInside(point)) {
+				umlShapes.add(umlShape);
 			}
 		}
-		return shapes;
+		return umlShapes;
 	}
 
 	public void setAllShapesSelectStatus(boolean selected) {
-		for (Shape shape : CanvasPanel.shapeList) {
-			shape.setSelected(selected);
+		for (UMLShape UMLShape : CanvasPanel.umlShapes) {
+			UMLShape.setSelected(selected);
 		}
 	}
 
-	public ArrayList<Shape> getSelectedShapes() {
-		ArrayList<Shape> selectedShapeList = new ArrayList<>();
-		for (Shape shape : shapeList) {
-			if (shape.isSelected()) {
-				selectedShapeList.add(shape);
+	public List<UMLShape> getSelectedShapes() {
+		List<UMLShape> selectedUMLShapeList = new ArrayList<>();
+		for (UMLShape umlShape : umlShapes) {
+			if (umlShape.isSelected()) {
+				selectedUMLShapeList.add(umlShape);
 			}
 		}
-		return selectedShapeList;
+		return selectedUMLShapeList;
 	}
 
-	public void addShape(Shape shape) {
-		shapeList.add(shape);
+	public void addShape(UMLShape umlShape) {
+		umlShapes.add(umlShape);
 	}
 
-	public void addShape(Collection<Shape> shapes) {
-		shapeList.addAll(shapes);
+	public void addShape(Collection<UMLShape> umlShapes) {
+		CanvasPanel.umlShapes.addAll(umlShapes);
 	}
 
-	public void removeShape(Shape shape) {
-		shapeList.remove(shape);
+	public void removeShape(UMLShape umlShape) {
+		umlShapes.remove(umlShape);
 	}
 
-	public void removeShape(Collection<Shape> shapes) {
-		shapeList.removeAll(shapes);
+	public void removeShape(Collection<UMLShape> umlShapes) {
+		CanvasPanel.umlShapes.removeAll(umlShapes);
 	}
 
 	public void removeSelectedShape() {
-		shapeList.removeAll(this.getSelectedShapes());
+		umlShapes.removeAll(this.getSelectedShapes());
 	}
 
 	private void reSortShapeList() {
-		shapeList.sort((shape1, shape2) -> {
+		umlShapes.sort((shape1, shape2) -> {
 			int p1 = shape1.getPaintPriority();
 			int p2 = shape2.getPaintPriority();
 			return Integer.compare(p1, p2);
@@ -102,13 +102,13 @@ public class CanvasPanel extends JPanel {
 	}
 
 	public void removeGroup() {
-		ArrayList<Shape> selectedShapes = this.getSelectedShapes();
-		if (selectedShapes.size() == 1) {
-			Shape shape = selectedShapes.get(0);
-			if (shape instanceof GroupObject) {
-				GroupObject group = ((GroupObject) shape);
+		List<UMLShape> selectedUMLShapes = this.getSelectedShapes();
+		if (selectedUMLShapes.size() == 1) {
+			UMLShape umlShape = selectedUMLShapes.get(0);
+			if (umlShape instanceof UMLGroup) {
+				UMLGroup group = ((UMLGroup) umlShape);
 				this.addShape(group.getChildren());
-				shapeList.remove(group);
+				umlShapes.remove(group);
 			}
 		}
 	}

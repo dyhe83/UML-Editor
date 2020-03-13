@@ -9,16 +9,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 
-public class imgButton extends JButton implements ActionListener {
-	private static final long serialVersionUID = 1L;
-
+public class ImgButton extends JButton implements ActionListener {
 	private static final Dimension imgSize = new Dimension(64, 64);
 	private static final Dimension btnSize = new Dimension(80, 80);
 	private static final Point position = new Point(15, 15);
 
 	private Mode mode;
 
-	public imgButton(int seq, File imgFile, Mode mode) {
+	public ImgButton(int seq, File imgFile, Mode mode) {
 		this.mode = mode;
 		this.setName("select");
 		this.setBackground(Color.WHITE);

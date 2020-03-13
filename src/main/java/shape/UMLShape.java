@@ -2,13 +2,13 @@ package shape;
 
 import lombok.Getter;
 import lombok.Setter;
-import port.Port;
 
 import java.awt.*;
+import java.io.Serializable;
 
 @Getter
 @Setter
-public abstract class Shape {
+public abstract class UMLShape implements Serializable {
 	private int paintPriority = Integer.MAX_VALUE;
 
 	private Point position = new Point();
@@ -16,11 +16,11 @@ public abstract class Shape {
 	private String name = "";
 	private boolean selected = false;
 
-	public Shape() {
+	public UMLShape() {
 
 	}
 
-	public Shape(Point position) {
+	public UMLShape(Point position) {
 		this.setPosition(position);
 	}
 
@@ -59,10 +59,6 @@ public abstract class Shape {
 
 	public void setHeight(int height) {
 		this.getSize().height = height;
-	}
-
-	public Port getClosestPort(Point point) {
-		return null;
 	}
 
 	public boolean isInside(Point mousePosition) {
