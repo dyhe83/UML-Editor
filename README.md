@@ -2,7 +2,7 @@
 [![Java8](https://img.shields.io/badge/Java-8.0-orange.svg?style=popout)](https://www.java.com)
 [![build](https://travis-ci.org/dyhe83/UML-Editor.svg?branch=master)](https://travis-ci.org/dyhe83/UML-Editor)
 
-一個簡單的 Java UML 編輯器
+使用 Java AWT 以物件導向概念實作的 UML 編輯器。
 
 ## How to use
 ```sh
